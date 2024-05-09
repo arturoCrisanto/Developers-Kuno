@@ -1,0 +1,28 @@
+name: Commit Workflow
+
+on:
+  push:
+    branches:
+      - main  # Adjust branch name as needed
+
+jobs:
+  build:
+    name: Check Commits
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Adjust Node.js version as needed
+
+    - name: Install dependencies
+      run: npm install  # Adjust this command based on your project's setup
+
+    - name: Run tests
+      run: npm test  # Adjust this command based on your project's setup
+
+    # Add more steps as needed for additional actions
